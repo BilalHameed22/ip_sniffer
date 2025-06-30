@@ -6,7 +6,7 @@ use std::process;
 use std::sync::mpsc::{Sender, channel};
 use std::thread;
 
-const Max: u16=65535;
+const MAX: u16=65535;
 
 struct Arguments{
     flag: String,
@@ -63,7 +63,7 @@ fn scan(tx: Sender<u16>, start_port: u16, addr: IpAddr, num_threads: u16){
             }
             Err(_)=>{}
         }
-        if (Max - port)< num_threads{
+        if (MAX - port)< num_threads{
             break;
         }
         port += num_threads;
